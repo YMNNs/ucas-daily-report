@@ -1,0 +1,28 @@
+name: report
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 23 * * *'
+
+
+jobs:
+  task:
+    name: daily report
+    runs-on: Ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run
+        run: |
+          python ./main.py -u "${{ secrets.USER }}" -p "${{ secrets.PASS }}" -n "${{ secrets.API_KEY }}"

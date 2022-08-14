@@ -1,4 +1,4 @@
-name: report
+name: Scheduled report
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   task:
-    name: daily report
+    name: report
     runs-on: Ubuntu-20.04
     steps:
       - uses: actions/checkout@v2

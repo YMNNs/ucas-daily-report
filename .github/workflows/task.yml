@@ -11,17 +11,15 @@ on:
 jobs:
   task:
     name: report
-    runs-on: Ubuntu-20.04
+    runs-on: Ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout
       - name: Set up Python 3.x
-        uses: actions/setup-python@v1
+        uses: actions/setup-python
         with:
           python-version: '3.9'
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run
         run: |

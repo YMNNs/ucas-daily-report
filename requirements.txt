@@ -1,2 +1,2 @@
-pytz==2022.5
-requests==2.28.1
+pytz~=2022.6
+requests~=2.28.1
